@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'pigrider_layout/main/appHeadSetting' %>
+    <%= stylesheet_link_tag "pigrider_layout/layout", :media=>"all" %>
+    <%= yield(:webpageCSS) %>
+    <%= yield(:webpageHeadJavascript) %>
+    <%= yield(:webpageMetaTag) %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  
+  
+  <body>
+    <header>
+      <%= render 'pigrider_layout/main/headerLogo' %>
+      <%= render 'pigrider_layout/main/headerApp' %>
+      <%= render 'pigrider_layout/main/headerNav' %>
+    </header>
+
+    <div class="MainBody">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <%= render 'pigrider_layout/main/footer' %>
+    </footer>
+
+    <%= yield(:webpageTailJavascript) %>
+  </body>
+</html>
