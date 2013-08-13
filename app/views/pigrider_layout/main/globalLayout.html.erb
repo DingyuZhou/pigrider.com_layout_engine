@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%= render 'pigrider_layout/main/appHeadSetting' %>
-    <%= stylesheet_link_tag "pigrider_layout/layout", :media=>"all" %>
-    <%= yield(:webpageCSS) %>
-    <%= yield(:webpageHeadJavascript) %>
-    <%= yield(:webpageMetaTag) %>
-    <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  
-  
-  <body>
-    <header>
-      <%= render 'pigrider_layout/main/headerLogo' %>
-      <%= render 'pigrider_layout/main/headerApp' %>
-      <%= render 'pigrider_layout/main/headerNav' %>
-    </header>
+<head>
+<%= render 'pigrider_layout/main/appHeadSetting' %>
+<%= stylesheet_link_tag "pigrider_layout/layout", :media=>"all" %>
+<%= javascript_include_tag "pigrider_layout/dropList" %>
+<%= yield(:webpageCSS) %>
+<%= yield(:webpageHeadJavascript) %>
+<%= yield(:webpageMetaTag) %>
+<%= csrf_meta_tags %>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
 
-    <div class="MainBody">
-      <%= yield %>
-    </div>
 
-    <footer>
-      <%= render 'pigrider_layout/main/footer' %>
-    </footer>
+<body>
+<header>
+<img src="/assets/pigrider_layout/pigRiderLogo.png" id="pigRiderLogo" class="FloatLeft" alt="PigRider">
 
-    <%= yield(:webpageTailJavascript) %>
-  </body>
+<%= render 'pigrider_layout/main/headerApp' %>
+
+<nav id="headerNav">
+<ul>
+<li><%= link_to "Home", main_app.root_path %></li>
+<li><a href="#" onmouseover="openDropList('allPigRiderProducts')" onmouseout="setDropListCloseTimer()">Products</a>
+<div id="allPigRiderProducts" onmouseover="removeDropListCloseTimer()" onmouseout="setDropListCloseTimer()">
+<a href="http://account.pigrider.com/">PigRider Account</a>
+<a href="http://blogs.pigrider.com/">PigRider Blogs</a>
+<a href="http://tools.pigrider.com/">PigRider Tools</a>
+</div>
+</li>
+<li><%= link_to "About Us", pigrider_layout.aboutUs_path %></li>
+<li><%= link_to "Contact Us", pigrider_layout.contactUs_path %></li>
+</ul>
+</nav>
+</header>
+
+<div class="MainBody">
+<%= yield %>
+</div>
+
+<footer>
+<nav id="footerNav">
+<%= link_to "About Us", pigrider_layout.aboutUs_path %>
+<%= link_to "Contact Us", pigrider_layout.contactUs_path %>
+</nav>
+</footer>
+
+<%= yield(:webpageTailJavascript) %>
+</body>
 </html>
