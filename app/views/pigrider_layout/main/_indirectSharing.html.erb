@@ -1,0 +1,26 @@
+<div id="shareWebsiteContainer" style="height:30px;">
+<a href="javascript:enterSocialNetworkSharing();"><img src="/assets/pigrider_layout/shareWebpage.png" style="border:none; margin:0 20px 0 0;" alt="Sharing this Webpage ..."></a>
+</div>
+
+
+<script type="text/javascript">
+function enterSocialNetworkSharing() {
+var xmlhttp;
+oShareDiv=document.getElementById("shareWebsiteContainer");
+if (window.XMLHttpRequest) {xmlhttp=new XMLHttpRequest();}
+else {xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+xmlhttp.onreadystatechange=function() {
+if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+oShareDiv.innerHTML=xmlhttp.responseText;
+var aoScripts=oShareDiv.getElementsByTagName("script");
+for (var iS=0; iS<aoScripts.length; iS++)
+eval(aoScripts[iS].innerHTML);
+} else {
+oShareDiv.innerHTML="Loading ...";
+}
+}
+xmlhttp.open("post","<%= pigrider_layout.socialNetworkSharing_path %>",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send();
+}
+</script>

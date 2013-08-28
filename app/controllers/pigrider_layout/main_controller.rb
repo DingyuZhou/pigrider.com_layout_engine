@@ -10,5 +10,11 @@ module PigriderLayout
   
     def contactUs
     end
+    
+    def socialNetworkSharing
+      respond_to do |format|
+        format.html {render :layout=>false}
+      end
+    end
   end
 end
