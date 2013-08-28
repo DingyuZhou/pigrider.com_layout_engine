@@ -21,6 +21,6 @@ oShareDiv.innerHTML="Loading ...";
 }
 xmlhttp.open("post","<%= pigrider_layout.socialNetworkSharing_path %>",true);
 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-xmlhttp.send();
+xmlhttp.send("sWebpageUrl=<%= request.original_url %>");
 }
 </script>

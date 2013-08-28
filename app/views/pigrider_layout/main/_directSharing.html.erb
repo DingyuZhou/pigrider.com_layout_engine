@@ -2,7 +2,11 @@
 
 
 <% if Rails.env.production? %>
-  <% sPageURL=request.original_url %>
+  <% if params[:sWebpageUrl].nil? %>
+    <% sPageURL=request.original_url %>
+  <% else %>
+    <% sPageURL=params[:sWebpageUrl] %>
+  <% end %>
   <% sDataText="" %>
 <% else %>
   <% sPageURL="http://www.pigrider.com" %>
