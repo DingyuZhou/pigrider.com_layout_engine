@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%= render 'pigrider_layout/main/appHeadSetting' %>
 <%= stylesheet_link_tag "pigrider_layout/layout", :media=>"all" %>
 <%= javascript_include_tag "pigrider_layout/dropList" %>
 <%= yield(:webpageCSS) %>
 <%= yield(:webpageHeadJavascript) %>
 <%= yield(:webpageMetaTag) %>
 <%= csrf_meta_tags %>
+<%= render 'pigrider_layout/main/appHeadSetting' %>
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
