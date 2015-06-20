@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'mysql2', '0.3.11'
+gem 'mysql2', '0.3.18'
 
 # Declare your gem's dependencies in pigrider_layout.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
